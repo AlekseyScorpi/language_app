@@ -1,20 +1,37 @@
 package com.example.mobileapp
 
+
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.mobileapp.databinding.ActivityNoConnectionBinding
+import com.example.mobileapp.databinding.ActivitySplashScreenBinding
+
 
 class MainActivity : AppCompatActivity() {
+    private val noConnectionBinding: ActivityNoConnectionBinding by lazy {
+        ActivityNoConnectionBinding.inflate(layoutInflater)
+    }
+
+    private val splashScreenBinding: ActivitySplashScreenBinding by lazy {
+        ActivitySplashScreenBinding.inflate(layoutInflater)
+    }
+    private val networkManager: NetworkManager = NetworkManager()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
-        setContentView(R.layout.splash_screen)
-        /*ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }*/
+        setContentView(splashScreenBinding.root)
+
+        noConnectionBinding.btnCheckConnection.setOnClickListener {
+            if (networkManager.isInternetAvailable(this)) {
+                setContentView(splashScreenBinding.root)
+            }
+        }
+
+        if (!networkManager.isInternetAvailable(this)) {
+            setContentView(noConnectionBinding.root)
+        }
     }
 }
