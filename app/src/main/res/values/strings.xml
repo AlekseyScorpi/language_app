@@ -3,4 +3,14 @@
     <string name="sad_connection_smile">😞</string>
     <string name="no_connection">No internet connection</string>
     <string name="check_connection">Check again</string>
+    <string name="onboarding1_title">Confidence in your words</string>
+    <string name="onboarding1_paragraph">"With conversation-based learning, you'll be talking from lesson one"</string>
+    <string name="onboarding2_title">Take your time to learn</string>
+    <string name="onboarding2_paragraph">Develop a habit of learning and make it a part of your daily routine</string>
+    <string name="onboarding3_title">The lessons you need to learn</string>
+    <string name="onboarding3_paragraph">Using a variety of learning styles to learn and retain</string>
+    <string name="onboardingSkip">Skip onboarding</string>
+    <string name="onboardingButton1">Next</string>
+    <string name="onboardingButton2">More</string>
+    <string name="onboardingButton3">Choose a language</string>
 </resources>

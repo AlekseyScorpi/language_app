@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mobileapp.databinding.ActivityNoConnectionBinding
 import com.example.mobileapp.databinding.ActivitySplashScreenBinding
 
 
@@ -25,6 +24,9 @@ class MainActivity : AppCompatActivity() {
 
         if (!networkManager.isInternetAvailable(this)) {
             startActivity(Intent(this, NoConnectionActivity::class.java))
+            finish()
+        } else {
+            startActivity(Intent(this, OnboardingActivity::class.java))
             finish()
         }
     }

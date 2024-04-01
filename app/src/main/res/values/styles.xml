@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="onBoardingCircleStyle">
+        <item name="android:layout_width">8dp</item>
+        <item name="android:layout_height">8dp</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+        <item name="borderRoundPercent">100</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Full</item>
+    </style>
+    
+    <style name="h5Medium">
+        <item name="android:textSize">22sp</item>
+        <item name="fontFamily">@font/fredoka_semibold</item>
+        <item name="android:textColor">#080E1E</item>
+    </style>
+
+    <style name="h6Medium">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/fredoka_semibold</item>
+        <item name="android:textColor">#080E1E</item>
+    </style>
+
+    <style name="bodyMedium">
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/fredoka_medium_regular</item>
+        <item name="android:textColor">#080E1E60</item>
+    </style>
+</resources>

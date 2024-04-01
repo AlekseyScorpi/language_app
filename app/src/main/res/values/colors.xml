@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="circleActive">#F76400</color>
+    <color name="circleInactive">#080E1E33</color>
 </resources>
