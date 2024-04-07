@@ -9,8 +9,11 @@
     <string name="onboarding2_paragraph">Develop a habit of learning and make it a part of your daily routine</string>
     <string name="onboarding3_title">The lessons you need to learn</string>
     <string name="onboarding3_paragraph">Using a variety of learning styles to learn and retain</string>
-    <string name="onboardingSkip">Skip onboarding</string>
-    <string name="onboardingButton1">Next</string>
-    <string name="onboardingButton2">More</string>
-    <string name="onboardingButton3">Choose a language</string>
+    <string name="onboarding_skip">Skip onboarding</string>
+    <string name="onboarding_button_2">More</string>
+    <string name="onboarding_button_3">Choose a language</string>
+    <string name="language_select_title">Language select</string>
+    <string name="language_select_question">What is your Mother language?</string>
+    <string name="language_select_button">Choose</string>
+    <string name="onboarding_button_1">Next</string>
 </resources>

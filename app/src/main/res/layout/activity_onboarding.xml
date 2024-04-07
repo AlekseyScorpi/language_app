@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/colorOnBackground">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vpOnboarding"
@@ -46,11 +47,12 @@
 
     <Button
         android:id="@+id/btnOnboardingNext"
-        style="@style/h6Medium"
+        style="@style/h6MediumButton"
         android:layout_width="327dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
-        android:backgroundTint="#5B7BFE"
+        android:background="@drawable/rounded_select_button_background"
+        app:backgroundTint="#5B7BFE"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,8 +61,8 @@
     <TextView
         android:id="@+id/tvSkip"
         style="@style/bodyMedium"
-        android:textColor="#080E1E"
-        android:text="@string/onboardingSkip"
+        android:textColor="?attr/colorPrimary"
+        android:text="@string/onboarding_skip"
         android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

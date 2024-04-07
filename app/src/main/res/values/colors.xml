@@ -2,6 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="circleActive">#F76400</color>
-    <color name="circleInactive">#080E1E33</color>
+    <color name="circle_active">#F76400</color>
+    <color name="circle_inactive">#FFF6EB</color>
+    <color name="language_button">#FFF6EB</color>
+    <color name="light_background">#FFFFFF</color>
+    <color name="light_text">#FFFFFF</color>
+    <color name="opacity_white_text">#99FFFFFF</color>
+    <color name="dark_background">#080E1E</color>
+    <color name="dark_text">#080E1E</color>
+    <color name="opacity_dark_text">#99080E1E</color>
 </resources>

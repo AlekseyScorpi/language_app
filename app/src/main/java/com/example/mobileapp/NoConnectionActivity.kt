@@ -21,7 +21,7 @@ class NoConnectionActivity : AppCompatActivity() {
 
         noConnectionBinding.btnCheckConnection.setOnClickListener {
             if (networkManager.isInternetAvailable(this)) {
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, SplashScreenActivity::class.java))
                 finish()
             }
         }

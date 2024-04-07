@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Language App</string>
+    <string name="sad_connection_smile">😞</string>
+    <string name="no_connection">Нет подключения к интеренту</string>
+    <string name="check_connection">Проверить ещё раз</string>
+    <string name="onboarding1_title">Будьте уверены в своих словах</string>
+    <string name="onboarding1_paragraph">С обучением, основанным на разговорах, вы заговорите с первого урока</string>
+    <string name="onboarding2_title">Потратьте время на изучение</string>
+    <string name="onboarding2_paragraph">Выработайте привычку и сделайте это частью своей повседневной жизни</string>
+    <string name="onboarding3_title">Уроки, которые вам нужно усвоить</string>
+    <string name="onboarding3_paragraph">Использование различных стилей обучения для усвоения и повторения</string>
+    <string name="onboarding_skip">Пропустить</string>
+    <string name="onboarding_button_2">Больше</string>
+    <string name="onboarding_button_3">Выберите язык</string>
+    <string name="language_select_title">Выбор языка</string>
+    <string name="language_select_question">Какой ваш родной язык?</string>
+    <string name="language_select_button">Выбрать</string>
+    <string name="onboarding_button_1">Далее</string>
+</resources>
