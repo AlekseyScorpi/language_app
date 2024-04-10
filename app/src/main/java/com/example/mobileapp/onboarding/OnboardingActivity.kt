@@ -4,15 +4,15 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
+import com.example.mobileapp.BaseActivity
 import com.example.mobileapp.language_select.LanguageSelectActivity
 import com.example.mobileapp.R
 import com.example.mobileapp.databinding.ActivityOnboardingBinding
 
-class OnboardingActivity : AppCompatActivity() {
-    private val onboardingBinding: ActivityOnboardingBinding by lazy {
+class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>() {
+    override val screenBinding: ActivityOnboardingBinding by lazy {
         ActivityOnboardingBinding.inflate(layoutInflater)
     }
 
@@ -38,10 +38,10 @@ class OnboardingActivity : AppCompatActivity() {
         setUIById(currentFragment, btnText[currentFragment])
         val adapter = OnboardingVpAdapter(this, fragList)
 
-        onboardingBinding.vpOnboarding.adapter = adapter
-        onboardingBinding.vpOnboarding.currentItem = currentFragment
+        screenBinding.vpOnboarding.adapter = adapter
+        screenBinding.vpOnboarding.currentItem = currentFragment
 
-        onboardingBinding.vpOnboarding.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+        screenBinding.vpOnboarding.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 currentFragment = position
@@ -51,9 +51,9 @@ class OnboardingActivity : AppCompatActivity() {
             }
         })
 
-        onboardingBinding.btnOnboardingNext.setOnClickListener {
+        screenBinding.btnOnboardingNext.setOnClickListener {
             if (currentFragment < 2) {
-                onboardingBinding.vpOnboarding.currentItem = ++currentFragment
+                screenBinding.vpOnboarding.currentItem = ++currentFragment
                 prefEditor.putInt("OnboardingFragment", currentFragment)
                 prefEditor.apply()
                 setUIById(currentFragment, btnText[currentFragment])
@@ -63,7 +63,7 @@ class OnboardingActivity : AppCompatActivity() {
             }
         }
 
-        onboardingBinding.tvSkip.setOnClickListener {
+        screenBinding.tvSkip.setOnClickListener {
             currentFragment = 2
             prefEditor.putInt("OnboardingFragment", currentFragment)
             prefEditor.apply()
@@ -71,43 +71,43 @@ class OnboardingActivity : AppCompatActivity() {
             finish()
         }
 
-        setContentView(onboardingBinding.root)
+        setContentView(screenBinding.root)
 
     }
 
     private fun setUIById(id: Int, btnText: String) {
-        onboardingBinding.btnOnboardingNext.text = btnText
+        screenBinding.btnOnboardingNext.text = btnText
         when (id) {
             0 -> {
-                onboardingBinding.ivCircle1.setBackgroundColor(ContextCompat.getColor(this,
+                screenBinding.ivCircle1.setBackgroundColor(ContextCompat.getColor(this,
                     R.color.circle_active
                 ))
-                onboardingBinding.ivCircle2.setBackgroundColor(ContextCompat.getColor(this,
+                screenBinding.ivCircle2.setBackgroundColor(ContextCompat.getColor(this,
                     R.color.circle_inactive
                 ))
-                onboardingBinding.ivCircle3.setBackgroundColor(ContextCompat.getColor(this,
+                screenBinding.ivCircle3.setBackgroundColor(ContextCompat.getColor(this,
                     R.color.circle_inactive
                 ))
             }
             1 -> {
-                onboardingBinding.ivCircle1.setBackgroundColor(ContextCompat.getColor(this,
+                screenBinding.ivCircle1.setBackgroundColor(ContextCompat.getColor(this,
                     R.color.circle_inactive
                 ))
-                onboardingBinding.ivCircle2.setBackgroundColor(ContextCompat.getColor(this,
+                screenBinding.ivCircle2.setBackgroundColor(ContextCompat.getColor(this,
                     R.color.circle_active
                 ))
-                onboardingBinding.ivCircle3.setBackgroundColor(ContextCompat.getColor(this,
+                screenBinding.ivCircle3.setBackgroundColor(ContextCompat.getColor(this,
                     R.color.circle_inactive
                 ))
             }
             2 -> {
-                onboardingBinding.ivCircle1.setBackgroundColor(ContextCompat.getColor(this,
+                screenBinding.ivCircle1.setBackgroundColor(ContextCompat.getColor(this,
                     R.color.circle_inactive
                 ))
-                onboardingBinding.ivCircle2.setBackgroundColor(ContextCompat.getColor(this,
+                screenBinding.ivCircle2.setBackgroundColor(ContextCompat.getColor(this,
                     R.color.circle_inactive
                 ))
-                onboardingBinding.ivCircle3.setBackgroundColor(ContextCompat.getColor(this,
+                screenBinding.ivCircle3.setBackgroundColor(ContextCompat.getColor(this,
                     R.color.circle_active
                 ))
             }

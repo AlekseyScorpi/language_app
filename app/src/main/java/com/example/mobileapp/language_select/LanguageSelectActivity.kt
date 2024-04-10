@@ -3,21 +3,21 @@ package com.example.mobileapp.language_select
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mobileapp.BaseActivity
 import com.example.mobileapp.login.LoginActivity
 import com.example.mobileapp.databinding.ActivityLanguageSelectBinding
 import com.example.mobileapp.setLocale
 
-class LanguageSelectActivity : AppCompatActivity() {
+class LanguageSelectActivity : BaseActivity<ActivityLanguageSelectBinding>() {
 
-    private val languageSelectBinding: ActivityLanguageSelectBinding by lazy {
+   override val screenBinding: ActivityLanguageSelectBinding by lazy {
         ActivityLanguageSelectBinding.inflate(layoutInflater)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(languageSelectBinding.root)
+        setContentView(screenBinding.root)
 
         val itemList = ArrayList<LanguageItem>()
         itemList.add(LanguageItem("Russian"))
@@ -26,15 +26,15 @@ class LanguageSelectActivity : AppCompatActivity() {
         itemList.add(LanguageItem("German"))
         itemList.add(LanguageItem("Chinese"))
 
-        languageSelectBinding.rvLanguageButtons.layoutManager = LinearLayoutManager(this)
-        languageSelectBinding.rvLanguageButtons.adapter = LanguageSelectRvAdapter(itemList) { position ->
+        screenBinding.rvLanguageButtons.layoutManager = LinearLayoutManager(this)
+        screenBinding.rvLanguageButtons.adapter = LanguageSelectRvAdapter(itemList) { position ->
             itemList.forEachIndexed { index, item ->
                 item.isSelectActivity = index == position
             }
-            languageSelectBinding.rvLanguageButtons.adapter?.notifyDataSetChanged()
+            screenBinding.rvLanguageButtons.adapter?.notifyDataSetChanged()
         }
 
-        languageSelectBinding.btnChooseLanguage.setOnClickListener {
+        screenBinding.btnChooseLanguage.setOnClickListener {
             var id = -1
             var name = ""
             itemList.forEachIndexed { index, item ->
