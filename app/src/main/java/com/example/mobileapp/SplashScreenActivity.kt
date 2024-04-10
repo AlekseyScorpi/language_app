@@ -9,6 +9,7 @@ import android.preference.PreferenceManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mobileapp.databinding.ActivitySplashScreenBinding
+import com.example.mobileapp.onboarding.OnboardingActivity
 
 
 class SplashScreenActivity : AppCompatActivity() {

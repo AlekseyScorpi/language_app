@@ -1,11 +1,13 @@
-package com.example.mobileapp
+package com.example.mobileapp.language_select
 
-import RvAdapter
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mobileapp.login.LoginActivity
 import com.example.mobileapp.databinding.ActivityLanguageSelectBinding
+import com.example.mobileapp.setLocale
 
 class LanguageSelectActivity : AppCompatActivity() {
 
@@ -25,7 +27,7 @@ class LanguageSelectActivity : AppCompatActivity() {
         itemList.add(LanguageItem("Chinese"))
 
         languageSelectBinding.rvLanguageButtons.layoutManager = LinearLayoutManager(this)
-        languageSelectBinding.rvLanguageButtons.adapter = RvAdapter(itemList) { position ->
+        languageSelectBinding.rvLanguageButtons.adapter = LanguageSelectRvAdapter(itemList) { position ->
             itemList.forEachIndexed { index, item ->
                 item.isSelectActivity = index == position
             }
@@ -52,6 +54,9 @@ class LanguageSelectActivity : AppCompatActivity() {
                 }
                 setLocale(selectedLocale, this)
                 recreate()
+
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
             }
         }
 

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Language App</string>
-    <string name="sad_connection_smile">😞</string>
     <string name="no_connection">Нет подключения к интеренту</string>
     <string name="check_connection">Проверить ещё раз</string>
     <string name="onboarding1_title">Будьте уверены в своих словах</string>
@@ -17,4 +15,13 @@
     <string name="language_select_question">Какой ваш родной язык?</string>
     <string name="language_select_button">Выбрать</string>
     <string name="onboarding_button_1">Далее</string>
+    <string name="login_header">Вход</string>
+    <string name="login_welcome">Присоединяйтесь и  начните обучение сейчас бесплатно</string>
+    <string name="login_email_title">Адрес электронной почты</string>
+    <string name="login_password_title">Пароль</string>
+    <string name="login_registration_before_span">Новый пользователь?</string>
+    <string name="login_registration_span">Регистрация</string>
+    <string name="login_google_before_span">Используйте</string>
+    <string name="login_google_span">Google аккаунт</string>
+    <string name="login_google_after_span">для входа</string>
 </resources>

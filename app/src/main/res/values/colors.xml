@@ -7,8 +7,12 @@
     <color name="language_button">#FFF6EB</color>
     <color name="light_background">#FFFFFF</color>
     <color name="light_text">#FFFFFF</color>
-    <color name="opacity_white_text">#99FFFFFF</color>
+    <color name="opacity_white_60">#99FFFFFF</color>
     <color name="dark_background">#080E1E</color>
     <color name="dark_text">#080E1E</color>
     <color name="opacity_dark_text">#99080E1E</color>
+    <color name="dark_lighter">#363B44</color>
+    <color name="opacity_gray_dark_50">#80656872</color>
+    <color name="gray_dark">#656872</color>
+    <color name="blue">#5B7BFE</color>
 </resources>
