@@ -3,7 +3,6 @@ package com.example.mobileapp.onboarding
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.example.mobileapp.BaseActivity

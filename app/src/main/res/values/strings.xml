@@ -44,6 +44,4 @@
     <string name="signup_password_hint" translatable="false">●●●●●●●</string>
     <string name="signup_confirm_title">Confirm Password</string>
     <string name="signup_confirm_hint" translatable="false">●●●●●●●</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

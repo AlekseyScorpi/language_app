@@ -83,7 +83,4 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         }
 
     }
-    private fun startSignup() {
-
-    }
 }

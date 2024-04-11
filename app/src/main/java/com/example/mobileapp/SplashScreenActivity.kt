@@ -5,8 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
-import androidx.activity.SystemBarStyle
-import androidx.activity.enableEdgeToEdge
 import com.example.mobileapp.databinding.ActivitySplashScreenBinding
 import com.example.mobileapp.onboarding.OnboardingActivity
 

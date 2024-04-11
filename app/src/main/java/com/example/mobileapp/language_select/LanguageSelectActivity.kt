@@ -2,7 +2,6 @@ package com.example.mobileapp.language_select
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobileapp.BaseActivity
 import com.example.mobileapp.login.LoginActivity
