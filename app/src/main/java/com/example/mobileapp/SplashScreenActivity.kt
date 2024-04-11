@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
+import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import com.example.mobileapp.databinding.ActivitySplashScreenBinding
 import com.example.mobileapp.onboarding.OnboardingActivity
@@ -18,8 +19,6 @@ class SplashScreenActivity : BaseActivity<ActivitySplashScreenBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        enableEdgeToEdge()
         setContentView(screenBinding.root)
 
         val savedLanguage = loadLanguagePreference(this)

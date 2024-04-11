@@ -13,7 +13,7 @@
       android:id="@+id/ivTopBlock"
       android:layout_width="match_parent"
       android:layout_height="92dp"
-      android:background="#410FA3"
+      android:background="@color/deep_blue"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
@@ -58,18 +58,11 @@
 
   <Button
       android:id="@+id/btnChooseLanguage"
-      android:layout_width="327dp"
-      android:layout_height="56dp"
-      android:layout_marginStart="25dp"
-      android:layout_marginEnd="25dp"
-      android:layout_marginBottom="50dp"
+      style="@style/selectBlueButton"
+      android:layout_marginBottom="25dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      android:text="@string/language_select_button"
-      android:textSize="20sp"
-      android:fontFamily="@font/fredoka_medium_regular"
-      android:background="@drawable/rounded_select_button_background"
-      app:backgroundTint="#5B7BFE"/>
+      android:text="@string/language_select_button" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>

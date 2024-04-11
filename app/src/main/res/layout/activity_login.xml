@@ -11,7 +11,7 @@
         android:id="@+id/ivTopBlock"
         android:layout_width="match_parent"
         android:layout_height="92dp"
-        android:background="#410FA3"
+        android:background="@color/deep_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -97,7 +97,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/textInput"
                 android:hint="@string/login_email_hint"
-                android:id="@+id/emailEditText"
+                android:id="@+id/inputEmailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress" />
@@ -141,7 +141,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/textInput"
                 android:hint="@string/login_password_hint"
-                android:id="@+id/passwordEditText"
+                android:id="@+id/inputPasswordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />
@@ -151,18 +151,13 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/btnChooseLanguage"
-        android:layout_width="327dp"
-        android:layout_height="56dp"
+        android:id="@+id/btnLogin"
+        style="@style/selectBlueButton"
         android:layout_marginStart="25dp"
         android:layout_marginTop="64dp"
         android:layout_marginBottom="192dp"
         android:layout_marginEnd="25dp"
-        android:background="@drawable/rounded_select_button_background"
-        android:fontFamily="@font/fredoka_medium_regular"
         android:text="@string/login_header"
-        android:textSize="20sp"
-        app:backgroundTint="#5B7BFE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -178,7 +173,7 @@
         tools:text="Not you member? Signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnChooseLanguage"/>
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"/>
 
     <TextView
         android:id="@+id/tvGoogle"

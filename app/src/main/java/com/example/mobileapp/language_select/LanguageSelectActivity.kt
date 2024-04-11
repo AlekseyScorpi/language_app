@@ -16,7 +16,6 @@ class LanguageSelectActivity : BaseActivity<ActivityLanguageSelectBinding>() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(screenBinding.root)
 
         val itemList = ArrayList<LanguageItem>()

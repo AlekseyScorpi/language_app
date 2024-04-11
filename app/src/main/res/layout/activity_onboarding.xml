@@ -47,13 +47,8 @@
 
     <Button
         android:id="@+id/btnOnboardingNext"
-        style="@style/h6MediumButton"
-        android:layout_width="327dp"
-        android:layout_height="wrap_content"
+        style="@style/selectBlueButton"
         android:layout_marginBottom="100dp"
-        android:background="@drawable/rounded_select_button_background"
-        app:backgroundTint="#5B7BFE"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

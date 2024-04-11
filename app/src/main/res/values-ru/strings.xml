@@ -24,4 +24,18 @@
     <string name="login_google_before_span">Используйте</string>
     <string name="login_google_span">Google аккаунт</string>
     <string name="login_google_after_span">для входа</string>
+    <string name="signup_header">Регистрация</string>
+    <string name="signup_first_title">Имя</string>
+    <string name="signup_second_title">Фамилия</string>
+    <string name="signup_email_title">Адрес электронной почты</string>
+    <string name="signup_before_span">Уже зарегистрированы?</string>
+    <string name="signup_span">Войти</string>
+    <string name="signup_welcome">Создайте аккаунт</string>
+    <string name="signup_first_name_hint">Имя</string>
+    <string name="signup_second_name_hint">Фамилия</string>
+    <string name="signup_welcome_password">Создайте пароль</string>
+    <string name="signup_continue">Продолжить</string>
+    <string name="signup_complete">Регистрация</string>
+    <string name="signup_password_title">Пароль</string>
+    <string name="signup_confirm_title">Повторите пароль</string>
 </resources>

@@ -26,7 +26,6 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         val btnText = listOf(
             getString(R.string.onboarding_button_1),
             getString(R.string.onboarding_button_2),
