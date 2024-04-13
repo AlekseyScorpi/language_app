@@ -48,9 +48,12 @@
     <string name="invalid_data_message">The data you entered is invalid</string>
     <string name="no_sign_in_title">"Can't sign in"</string>
     <string name="no_sign_in_message">The email and/or password you entered is incorrect</string>
+    <string name="main_activity_welcome">Hello, %s!</string>
     <string name="main_activity_motivation">Are you ready for learning today?</string>
     <string name="main_leaderboard_title">Top users</string>
     <string name="main_exercises_title">Available exercises</string>
     <string name="busy_email_title">Error</string>
     <string name="busy_email_message">This email is already using</string>
+    <string name="default_user_photo_url" translatable="false">https://buadpnhqhvnpmlvoakff.supabase.co/storage/v1/object/public/user_photos/default.jpg</string>
+    <string name="first_second_names_pair" translatable="false">%s %s</string>
 </resources>

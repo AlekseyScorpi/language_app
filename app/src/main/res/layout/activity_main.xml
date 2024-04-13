@@ -22,7 +22,6 @@
         android:layout_height="54dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/back_icon"
         android:elevation="2dp"
         app:layout_constraintStart_toStartOf="@+id/ivTopBlock"
         app:layout_constraintTop_toTopOf="parent" />
@@ -49,7 +48,7 @@
         android:textColor="@color/gray_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvUserWelcome"
-        tools:text="Are you ready for learning today?" />
+        android:text="@string/main_activity_motivation" />
 
     <TextView
         android:id="@+id/tvLeaderBoardTitle"

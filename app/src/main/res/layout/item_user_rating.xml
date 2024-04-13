@@ -37,6 +37,7 @@
         app:layout_constraintTop_toTopOf="@+id/ivBackground" />
 
     <TextView
+        android:id="@+id/tvPoints"
         tools:text = "12 points"
         style="@style/textActivity"
         android:textColor="@color/black"

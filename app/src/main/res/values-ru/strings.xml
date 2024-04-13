@@ -42,6 +42,7 @@
     <string name="invalid_data_message">Введенные вами данные некорректные</string>
     <string name="no_sign_in_title">Ошибка входа</string>
     <string name="no_sign_in_message">Вы ввели неверный адрес электронной почты и/или пароль</string>
+    <string name="main_activity_welcome">Привет, %s!</string>
     <string name="main_activity_motivation">Готовы к сегодняшним урокам?</string>
     <string name="main_leaderboard_title">Лучшие пользователи</string>
     <string name="main_exercises_title">Доступные упражнения</string>

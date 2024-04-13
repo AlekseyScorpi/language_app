@@ -10,6 +10,9 @@ data class UserInfo (
     val firstName: String,
     @SerialName ("second_name")
     val secondName: String,
-    @SerialName ("user_name")
+    @SerialName ("user_email")
     val userEmail: String,
+    @SerialName ("user_photo_url")
+    val userPhotoUrl: String? = null,
+    val points: Double = 0.0,
 )
