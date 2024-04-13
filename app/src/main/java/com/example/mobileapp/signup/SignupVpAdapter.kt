@@ -12,4 +12,8 @@ class SignupVpAdapter(fa: FragmentActivity, private val list: List<Fragment>) : 
     override fun createFragment(position: Int): Fragment {
         return list[position]
     }
+
+    fun getFragmentByPosition(position: Int) : Fragment {
+        return list[position]
+    }
 }

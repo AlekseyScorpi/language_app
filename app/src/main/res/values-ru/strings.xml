@@ -38,4 +38,13 @@
     <string name="signup_complete">Регистрация</string>
     <string name="signup_password_title">Пароль</string>
     <string name="signup_confirm_title">Повторите пароль</string>
+    <string name="invalid_data_title">Неправильный ввод</string>
+    <string name="invalid_data_message">Введенные вами данные некорректные</string>
+    <string name="no_sign_in_title">Ошибка входа</string>
+    <string name="no_sign_in_message">Вы ввели неверный адрес электронной почты и/или пароль</string>
+    <string name="main_activity_motivation">Готовы к сегодняшним урокам?</string>
+    <string name="main_leaderboard_title">Лучшие пользователи</string>
+    <string name="main_exercises_title">Доступные упражнения</string>
+    <string name="busy_email_title">Ошибка</string>
+    <string name="busy_email_message">Этот адрес уже используется</string>
 </resources>

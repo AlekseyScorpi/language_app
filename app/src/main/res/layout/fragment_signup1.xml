@@ -47,7 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvFirstNameTitle">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/firstNameEditText"
+                android:id="@+id/inputFirstNameEditText"
                 style="@style/textInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

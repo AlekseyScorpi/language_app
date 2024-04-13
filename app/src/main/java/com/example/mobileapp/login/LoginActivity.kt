@@ -16,6 +16,12 @@ import com.example.mobileapp.BaseActivity
 import com.example.mobileapp.LanguageApplication
 import com.example.mobileapp.R
 import com.example.mobileapp.databinding.ActivityLoginBinding
+import com.example.mobileapp.isEmailValid
+import com.example.mobileapp.isPasswordValid
+import com.example.mobileapp.language_select.LanguageSelectActivity
+import com.example.mobileapp.main.MainActivity
+import com.example.mobileapp.showInvalidDataDialog
+import com.example.mobileapp.showNoSignInDialog
 import com.example.mobileapp.signup.SignupActivity
 import io.github.jan.supabase.gotrue.auth
 import io.github.jan.supabase.gotrue.providers.builtin.Email
@@ -27,8 +33,16 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     override val screenBinding: ActivityLoginBinding by lazy {
         ActivityLoginBinding.inflate(layoutInflater)
     }
+
+    private lateinit var email: String
+    private lateinit var password: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        screenBinding.ivBack.setOnClickListener {
+            startActivity(Intent(this, LanguageSelectActivity::class.java))
+            finish()
+        }
 
 
         val registrationBeforeSpan = getString(R.string.login_registration_before_span)
@@ -68,18 +82,28 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         setContentView(screenBinding.root)
 
         screenBinding.btnLogin.setOnClickListener {
+            email = screenBinding.inputEmailEditText.text.toString()
+            password = screenBinding.inputPasswordEditText.text.toString()
+
+            if (!isEmailValid(email) or !isPasswordValid(password)) {
+                showInvalidDataDialog(this)
+                return@setOnClickListener
+            }
+
             lifecycleScope.launch {
                 try {
                     LanguageApplication.supabaseClient.auth.signInWith(Email) {
                         email = screenBinding.inputEmailEditText.text.toString()
                         password = screenBinding.inputPasswordEditText.text.toString()
                     }
-                    screenBinding.inputEmailEditText.setText("Hacker")
+                    // good sign in
+                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                    finish()
+
                 } catch (e: Exception) {
-                    screenBinding.inputEmailEditText.setText("Lox")
+                    showNoSignInDialog(this@LoginActivity)
                 }
             }
-            LanguageApplication
         }
 
     }

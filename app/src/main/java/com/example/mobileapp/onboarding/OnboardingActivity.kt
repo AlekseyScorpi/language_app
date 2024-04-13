@@ -56,13 +56,15 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>() {
                 prefEditor.apply()
                 setUIById(currentFragment, btnText[currentFragment])
             } else {
+                prefEditor.putInt("OnboardingFragment", -1)
+                prefEditor.apply()
                 startActivity(Intent(this, LanguageSelectActivity::class.java))
                 finish()
             }
         }
 
         screenBinding.tvSkip.setOnClickListener {
-            currentFragment = 2
+            currentFragment = -1
             prefEditor.putInt("OnboardingFragment", currentFragment)
             prefEditor.apply()
             startActivity(Intent(this, LanguageSelectActivity::class.java))
