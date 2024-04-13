@@ -1,11 +1,11 @@
 package com.example.mobileapp.onboarding
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.example.mobileapp.BaseActivity
+import com.example.mobileapp.LanguageApplication
 import com.example.mobileapp.language_select.LanguageSelectActivity
 import com.example.mobileapp.R
 import com.example.mobileapp.databinding.ActivityOnboardingBinding
@@ -30,9 +30,8 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>() {
             getString(R.string.onboarding_button_2),
             getString(R.string.onboarding_button_3),
         )
-        val sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val prefEditor = sharedPref.edit()
-        currentFragment = sharedPref.getInt("OnboardingFragment", 0)
+
+        currentFragment = LanguageApplication.localStorage.getInt("OnboardingFragment")
         setUIById(currentFragment, btnText[currentFragment])
         val adapter = OnboardingVpAdapter(this, fragList)
 
@@ -43,8 +42,7 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 currentFragment = position
-                prefEditor.putInt("OnboardingFragment", currentFragment)
-                prefEditor.apply()
+                LanguageApplication.localStorage.saveInt("OnboardingFragment", currentFragment)
                 setUIById(currentFragment, btnText[currentFragment])
             }
         })
@@ -52,12 +50,10 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>() {
         screenBinding.btnOnboardingNext.setOnClickListener {
             if (currentFragment < 2) {
                 screenBinding.vpOnboarding.currentItem = ++currentFragment
-                prefEditor.putInt("OnboardingFragment", currentFragment)
-                prefEditor.apply()
+                LanguageApplication.localStorage.saveInt("OnboardingFragment", currentFragment)
                 setUIById(currentFragment, btnText[currentFragment])
             } else {
-                prefEditor.putInt("OnboardingFragment", -1)
-                prefEditor.apply()
+                LanguageApplication.localStorage.saveInt("OnboardingFragment", -1)
                 startActivity(Intent(this, LanguageSelectActivity::class.java))
                 finish()
             }
@@ -65,8 +61,7 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>() {
 
         screenBinding.tvSkip.setOnClickListener {
             currentFragment = -1
-            prefEditor.putInt("OnboardingFragment", currentFragment)
-            prefEditor.apply()
+            LanguageApplication.localStorage.saveInt("OnboardingFragment", currentFragment)
             startActivity(Intent(this, LanguageSelectActivity::class.java))
             finish()
         }

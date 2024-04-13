@@ -2,7 +2,6 @@ package com.example.mobileapp
 
 import android.content.Context
 import android.content.res.Configuration
-import android.preference.PreferenceManager
 import androidx.appcompat.app.AlertDialog
 import java.util.*
 
@@ -16,14 +15,11 @@ fun setLocale(language: String, context: Context) {
     configuration.setLocale(locale)
     resources.updateConfiguration(configuration, resources.displayMetrics)
 
-    saveLanguagePreference(language, context) // Сохранение языка в SharedPreferences
+    saveLanguagePreference(language)
 }
 
-fun saveLanguagePreference(language: String, context: Context) {
-    val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-    val editor = sharedPreferences.edit()
-    editor.putString("language", language)
-    editor.apply()
+fun saveLanguagePreference(language: String) {
+    LanguageApplication.localStorage.saveString("language", language)
 }
 
 fun isEmailValid(email: String): Boolean {

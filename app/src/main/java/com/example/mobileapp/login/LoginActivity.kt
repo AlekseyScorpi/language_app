@@ -96,6 +96,14 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                         email = screenBinding.inputEmailEditText.text.toString()
                         password = screenBinding.inputPasswordEditText.text.toString()
                     }
+
+                    val session = LanguageApplication.supabaseClient.auth.currentSessionOrNull()
+
+                    if (session != null) {
+                        LanguageApplication.localStorage.saveString("SessionAccessToken", session.accessToken)
+                        LanguageApplication.localStorage.saveString("SessionRefreshToken", session.refreshToken)
+                    }
+
                     // good sign in
                     startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                     finish()

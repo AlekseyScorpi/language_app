@@ -4,10 +4,12 @@ package com.example.mobileapp
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
+import androidx.lifecycle.lifecycleScope
 import com.example.mobileapp.databinding.ActivitySplashScreenBinding
 import com.example.mobileapp.language_select.LanguageSelectActivity
+import com.example.mobileapp.main.MainActivity
 import com.example.mobileapp.onboarding.OnboardingActivity
+import kotlinx.coroutines.launch
 
 
 class SplashScreenActivity : BaseActivity<ActivitySplashScreenBinding>() {
@@ -22,25 +24,27 @@ class SplashScreenActivity : BaseActivity<ActivitySplashScreenBinding>() {
         super.onCreate(savedInstanceState)
         setContentView(screenBinding.root)
 
-        val savedLanguage = loadLanguagePreference(this)
-        savedLanguage?.let { language ->
-            setLocale(language, this)
-        }
+        val savedLanguage = loadLanguagePreference(this@SplashScreenActivity)
+        setLocale(savedLanguage, this@SplashScreenActivity)
 
-        val sharedPref = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        currentFragment = sharedPref.getInt("OnboardingFragment", 0)
+        currentFragment = LanguageApplication.localStorage.getInt("OnboardingFragment")
 
         if (currentFragment != -1) {
-            startActivity(Intent(this, OnboardingActivity::class.java))
-        }
-        else {
-            startActivity(Intent(this, LanguageSelectActivity::class.java))
+            startActivity(Intent(this@SplashScreenActivity, OnboardingActivity::class.java))
+        } else {
+            lifecycleScope.launch {
+                val hasSession = (application as LanguageApplication).hasSavedSession()
+                if (hasSession) {
+                    startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
+                } else {
+                    startActivity(Intent(this@SplashScreenActivity, LanguageSelectActivity::class.java))
+                }
+            }
         }
         finish()
     }
 
-    private fun loadLanguagePreference(context: Context): String? {
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        return sharedPreferences.getString("language", null)
+    private fun loadLanguagePreference(context: Context): String {
+        return LanguageApplication.localStorage.getString("language")
     }
 }
