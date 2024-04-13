@@ -54,6 +54,11 @@
     <string name="main_exercises_title">Available exercises</string>
     <string name="busy_email_title">Error</string>
     <string name="busy_email_message">This email is already using</string>
-    <string name="default_user_photo_url" translatable="false">https://buadpnhqhvnpmlvoakff.supabase.co/storage/v1/object/public/user_photos/default.jpg</string>
     <string name="first_second_names_pair" translatable="false">%s %s</string>
+    <string name="profile_switch_to_dark">Switch to Dark</string>
+    <string name="profile_switch_to_light">Switch to Light</string>
+    <string name="profile_change_language">Change mother language</string>
+    <string name="profile_change_image">Change your image</string>
+    <string name="profile_logout">Logout</string>
+    <string name="profile_welcome">Your profile, %s</string>
 </resources>

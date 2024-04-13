@@ -1,5 +1,6 @@
 package com.example.mobileapp.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,10 +11,13 @@ import com.example.mobileapp.LanguageApplication
 import com.example.mobileapp.R
 import com.example.mobileapp.database.UserInfo
 import com.example.mobileapp.databinding.ActivityMainBinding
+import com.example.mobileapp.user_profile.UserProfileActivity
 import io.github.jan.supabase.gotrue.auth
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Order
 import kotlinx.coroutines.launch
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -25,6 +29,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         lifecycleScope.launch {
             val user = LanguageApplication.supabaseClient.auth.currentUserOrNull()
             val id = user?.id ?: ""
@@ -50,6 +55,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
             screenBinding.rvLeaderBoard.layoutManager = LinearLayoutManager(this@MainActivity)
             screenBinding.rvLeaderBoard.adapter = LeaderBoardRvAdapter(userItems)
+
+            screenBinding.ivUserPhoto.setOnClickListener {
+                val intent = Intent(this@MainActivity, UserProfileActivity::class.java)
+                intent.putExtra("UserInfo", Json.encodeToString(userInfo))
+                startActivity(intent)
+            }
 
 
             setContentView(screenBinding.root)

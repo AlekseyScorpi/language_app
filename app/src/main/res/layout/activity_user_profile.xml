@@ -13,7 +13,6 @@
         android:layout_height="134dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="44dp"
-        android:background="@drawable/back_icon"
         android:elevation="2dp"
         app:layout_constraintStart_toStartOf="@+id/ivTopBlock"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,5 +37,41 @@
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivUserPhoto" />
+
+    <Button
+        style="@style/selectBlueButton"
+        android:id="@+id/btnLogout"
+        android:layout_marginBottom="26dp"
+        android:text="@string/profile_logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnChangeImage"
+        style="@style/selectBlueButton"
+        android:layout_marginBottom="14dp"
+        android:text="@string/profile_change_image"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnChangeLanguage"
+        style="@style/selectBlueButton"
+        android:layout_marginBottom="14dp"
+        android:text="@string/profile_change_language"
+        app:layout_constraintBottom_toTopOf="@+id/btnChangeImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnSwitchTheme"
+        style="@style/selectBlueButton"
+        android:layout_marginBottom="14dp"
+        tools:text="@string/profile_switch_to_dark"
+        app:layout_constraintBottom_toTopOf="@+id/btnChangeLanguage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
