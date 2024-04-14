@@ -27,6 +27,12 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="h4">
+        <item name="android:textSize">28sp</item>
+        <item name="fontFamily">@font/fredoka_semibold</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
     <style name="selectBlueButton">
         <item name="android:textSize">20sp</item>
         <item name="fontFamily">@font/fredoka_semibold</item>
@@ -54,6 +60,12 @@
         <item name="android:textSize">17sp</item>
         <item name="fontFamily">@font/fredoka_medium_regular</item>
         <item name="android:textColor">?attr/colorActivity</item>
+    </style>
+    
+    <style name="bodyLarge">
+        <item name="android:textSize">17sp</item>
+        <item name="fontFamily">@font/fredoka_medium_regular</item>
+        <item name="android:textColorHint">?attr/colorSecondary</item>
     </style>
 
     <style name="bodyMediumSmallTitles">

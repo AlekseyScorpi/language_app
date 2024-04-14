@@ -68,4 +68,7 @@
     <string name="resize_photo_title">Ваше фото великолепно!</string>
     <string name="resize_photo_message">Измените размер фото,\nчтобы оно поместилось\nв область</string>
     <string name="resize_photo_button">Использовать это изображение</string>
+    <string name="word_exercise_title">Практика слов</string>
+    <string name="word_exercise_check">Проверить</string>
+    <string name="word_exercise_next">Далее</string>
 </resources>

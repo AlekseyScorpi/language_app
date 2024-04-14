@@ -25,4 +25,6 @@
     <color name="green">#5BA890</color>
     <color name="red">#D6185D</color>
     <color name="resize_background">#1B1815</color>
+    <color name="gray_light">#E5E5E5</color>
+    <color name="orange">#F76400</color>
 </resources>

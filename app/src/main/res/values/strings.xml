@@ -81,4 +81,7 @@
     <string name="resize_photo_title">Your photo is gorgeous!</string>
     <string name="resize_photo_message">"Just resize that photo \nfor fit in square"</string>
     <string name="resize_photo_button">Use that image</string>
+    <string name="word_exercise_title">Word practice</string>
+    <string name="word_exercise_check">Check</string>
+    <string name="word_exercise_next">Next</string>
 </resources>

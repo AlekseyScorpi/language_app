@@ -17,8 +17,13 @@
         android:theme="@style/Theme.MobileApp"
         tools:targetApi="31">
         <activity
+            android:name=".exercises.words.WordExerciseActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".user_profile.ChangeImageActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <service
             android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
