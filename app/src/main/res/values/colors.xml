@@ -18,4 +18,10 @@
     <color name="deep_blue">#410FA3</color>
     <color name="gray_text">#B6B6B6</color>
     <color name="user_item_background">#E5E5E5</color>
+    <color name="multiplayer_background">#5BA890</color>
+    <color name="animal_background">#5B7BFE</color>
+    <color name="word_background">#D6185D</color>
+    <color name="audition_background">#F76400</color>
+    <color name="green">#5BA890</color>
+    <color name="red">#D6185D</color>
 </resources>

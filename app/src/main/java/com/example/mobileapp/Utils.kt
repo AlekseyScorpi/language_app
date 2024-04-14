@@ -1,25 +1,15 @@
 package com.example.mobileapp
 
 import android.content.Context
-import android.content.res.Configuration
 import androidx.appcompat.app.AlertDialog
-import java.util.*
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 
 private const val NAME_REGEX_PATTERN = "^[a-zA-Zа-яА-Я]{2,}$"
 private const val PASSWORD_REGEX_PATTERN = "^[a-zA-Z0-9@\$!%*?&]{6,}$"
 fun setLocale(language: String, context: Context) {
-    val locale = Locale(language)
-    Locale.setDefault(locale)
-    val resources = context.resources
-    val configuration = Configuration(resources.configuration)
-    configuration.setLocale(locale)
-    resources.updateConfiguration(configuration, resources.displayMetrics)
-
-    saveLanguagePreference(language)
-}
-
-fun saveLanguagePreference(language: String) {
-    LanguageApplication.localStorage.saveString("language", language)
+    val appLocale: LocaleListCompat = LocaleListCompat.forLanguageTags(language)
+    AppCompatDelegate.setApplicationLocales(appLocale)
 }
 
 fun isEmailValid(email: String): Boolean {

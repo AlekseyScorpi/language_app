@@ -113,6 +113,5 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                 }
             }
         }
-
     }
 }

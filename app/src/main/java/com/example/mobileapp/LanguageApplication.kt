@@ -11,7 +11,7 @@ import io.github.jan.supabase.postgrest.Postgrest
 import io.github.jan.supabase.serializer.KotlinXSerializer
 import kotlinx.serialization.json.Json
 
-class LanguageApplication : Application() {
+class   LanguageApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 

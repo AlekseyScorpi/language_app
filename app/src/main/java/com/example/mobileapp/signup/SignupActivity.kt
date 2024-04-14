@@ -108,9 +108,16 @@ class SignupActivity : BaseActivity<ActivitySignupBinding>() {
 
                         LanguageApplication.supabaseClient.auth.clearSession()
 
-                        val emailResult = LanguageApplication.supabaseClient.auth.signUpWith(Email) {
+                        LanguageApplication.supabaseClient.auth.signUpWith(Email) {
                             email = this@SignupActivity.email
                             password = this@SignupActivity.password
+                        }
+
+                        val session = LanguageApplication.supabaseClient.auth.currentSessionOrNull()
+
+                        if (session != null) {
+                            LanguageApplication.localStorage.saveString("SessionAccessToken", session.accessToken)
+                            LanguageApplication.localStorage.saveString("SessionRefreshToken", session.refreshToken)
                         }
 
                         val user = LanguageApplication.supabaseClient.auth.retrieveUserForCurrentSession()
@@ -175,4 +182,5 @@ class SignupActivity : BaseActivity<ActivitySignupBinding>() {
 
         setContentView(screenBinding.root)
     }
+
 }

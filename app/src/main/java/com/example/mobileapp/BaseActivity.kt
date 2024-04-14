@@ -24,6 +24,7 @@ abstract class BaseActivity<T: ViewBinding> : AppCompatActivity(), NetworkStateL
         ActivityNoConnectionBinding.inflate(layoutInflater)
     }
 
+
     protected abstract val screenBinding:T
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,5 +74,4 @@ abstract class BaseActivity<T: ViewBinding> : AppCompatActivity(), NetworkStateL
         isInternetAvailable = false
         setContentView(noConnectionBinding.root)
     }
-
 }

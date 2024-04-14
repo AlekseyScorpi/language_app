@@ -81,44 +81,107 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvLeaderBoard" />
 
-    <ImageView
-        android:id="@+id/ivAnimalsExercise"
-        android:background="@drawable/animals_exercise_background"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAnimal"
         android:layout_width="153dp"
         android:layout_height="117dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="9dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvExercisesTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvExercisesTitle">
 
-    <ImageView
-        android:id="@+id/ivWordExercise"
-        android:background="@drawable/word_exercise_background"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/exercise_background_shape"
+            android:backgroundTint="@color/animal_background" />
+
+        <TextView
+            style="@style/exerciseIconText"
+            android:text="@string/animal_icon" />
+
+        <TextView
+            style="@style/exerciseName"
+            android:text="@string/animal_exercise_button_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clWord"
         android:layout_width="153dp"
         android:layout_height="117dp"
-        android:layout_marginTop="9dp"
         android:layout_marginEnd="25dp"
+        android:layout_marginTop="9dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvExercisesTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvExercisesTitle">
 
-    <ImageView
-        android:id="@+id/ivAuditionExercise"
-        android:background="@drawable/audition_exercise_background"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/exercise_background_shape"
+            android:backgroundTint="@color/word_background" />
+
+        <TextView
+            style="@style/exerciseIconText"
+            android:textSize="74sp"
+            android:text="@string/word_icon" />
+
+        <TextView
+            style="@style/exerciseName"
+            android:text="@string/word_exercise_button_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clAudition"
         android:layout_width="153dp"
         android:layout_height="117dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="17dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivAnimalsExercise" />
+        app:layout_constraintTop_toBottomOf="@+id/clAnimal">
 
-    <ImageView
-        android:id="@+id/ivMultiplayerExercise"
-        android:background="@drawable/multiplayer_exercise_background"
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/exercise_background_shape"
+            android:backgroundTint="@color/audition_background" />
+
+        <TextView
+            style="@style/exerciseIconText"
+            android:textSize="74sp"
+            android:text="@string/audition_icon" />
+
+        <TextView
+            style="@style/exerciseName"
+            android:text="@string/audition_exercise_button_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMultiplayer"
         android:layout_width="153dp"
         android:layout_height="117dp"
-        android:layout_marginEnd="25dp"
         android:layout_marginTop="17dp"
+        android:layout_marginEnd="25dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivWordExercise" />
+        app:layout_constraintTop_toBottomOf="@+id/clWord">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/exercise_background_shape"
+            android:backgroundTint="@color/multiplayer_background" />
+
+        <TextView
+            style="@style/exerciseIconText"
+            android:text="@string/multiplayer_icon" />
+
+        <TextView
+            style="@style/exerciseName"
+            android:text="@string/multiplayer_exercise_button_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

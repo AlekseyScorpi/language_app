@@ -11,6 +11,7 @@ import com.example.mobileapp.LanguageApplication
 import com.example.mobileapp.R
 import com.example.mobileapp.database.UserInfo
 import com.example.mobileapp.databinding.ActivityMainBinding
+import com.example.mobileapp.exercises.animals.AnimalsExerciseActivity
 import com.example.mobileapp.user_profile.UserProfileActivity
 import io.github.jan.supabase.gotrue.auth
 import io.github.jan.supabase.postgrest.postgrest
@@ -27,13 +28,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private var userItems: MutableList<UserItem> = mutableListOf()
 
+    private lateinit var userInfo: UserInfo
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setContentView(screenBinding.root)
+
+        screenBinding.clAnimal.setOnClickListener {
+            val intent = Intent(this, AnimalsExerciseActivity::class.java)
+            startActivity(intent)
+        }
 
         lifecycleScope.launch {
             val user = LanguageApplication.supabaseClient.auth.currentUserOrNull()
             val id = user?.id ?: ""
-            val userInfo = LanguageApplication.supabaseClient.postgrest.from("user_info").select {
+            userInfo = LanguageApplication.supabaseClient.postgrest.from("user_info").select {
                 filter { eq("id", id) }
             }.decodeSingle<UserInfo>()
 
@@ -61,9 +71,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 intent.putExtra("UserInfo", Json.encodeToString(userInfo))
                 startActivity(intent)
             }
-
-
-            setContentView(screenBinding.root)
         }
     }
+
 }

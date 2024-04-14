@@ -43,17 +43,20 @@ class LanguageSelectActivity : BaseActivity<ActivityLanguageSelectBinding>() {
             }
             if (id != -1) {
                 val selectedLocale = when (name) {
-                    "Russian" -> "ru"
-                    "English" -> "en"
+                    "Russian" -> "ru-RU"
+                    "English" -> "en-US"
                     //"Poland" -> "pl"
                     //"German" -> "de"
                     //"Chinese" -> "zh"
-                    else -> "en"
+                    else -> "en-US"
                 }
                 setLocale(selectedLocale, this)
                 recreate()
 
-                startActivity(Intent(this, LoginActivity::class.java))
+                val isProfileChange = intent.getBooleanExtra("ProfileChange", false)
+
+                if (!isProfileChange) startActivity(Intent(this, LoginActivity::class.java))
+
                 finish()
             }
         }

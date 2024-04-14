@@ -61,4 +61,21 @@
     <string name="profile_change_image">Change your image</string>
     <string name="profile_logout">Logout</string>
     <string name="profile_welcome">Your profile, %s</string>
+    <string name="animal_exercise_title">Guess the animal</string>
+    <string name="animal_exercise_request">Write who is on image</string>
+    <string name="animal_exercise_good">Holly Molly! That is Right!</string>
+    <string name="animal_exercise_bad">"Eh? Wrong answer :(\nThat is: %s"</string>
+    <string name="animal_exercise_next">Next</string>
+    <string name="animal_exercise_check">Check</string>
+    <string name="animal_exercise_again">Try again</string>
+    <string name="multiplayer_icon" translatable="false">🎮</string>
+    <string name="audition_icon" translatable="false">🔊</string>
+    <string name="word_icon" translatable="false">✏️</string>
+    <string name="animal_icon" translatable="false">🐻‍❄️</string>
+    <string name="animal_exercise_button_text">Guess the animal</string>
+    <string name="word_exercise_button_text">Word practice</string>
+    <string name="audition_exercise_button_text">Audition</string>
+    <string name="multiplayer_exercise_button_text">Game</string>
+    <string name="animal_good_answer_icon" translatable="false">🎉</string>
+    <string name="animal_bad_answer_icon" translatable="false">😿</string>
 </resources>
