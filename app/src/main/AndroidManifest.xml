@@ -16,6 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileApp"
         tools:targetApi="31">
+        <activity
+            android:name=".user_profile.ChangeImageActivity"
+            android:exported="false" />
+
         <service
             android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
             android:enabled="false"
@@ -24,9 +28,11 @@
                 android:name="autoStoreLocales"
                 android:value="true" />
         </service>
+
         <activity
             android:name=".exercises.animals.AnimalsExerciseActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".user_profile.UserProfileActivity"
             android:exported="false"

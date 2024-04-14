@@ -17,8 +17,6 @@ import io.github.jan.supabase.gotrue.auth
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Order
 import kotlinx.coroutines.launch
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -40,6 +38,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             startActivity(intent)
         }
 
+        screenBinding.ivUserPhoto.setOnClickListener {
+            val intent = Intent(this@MainActivity, UserProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        screenBinding.rvLeaderBoard.layoutManager = LinearLayoutManager(this@MainActivity)
+        screenBinding.rvLeaderBoard.adapter = LeaderBoardRvAdapter(userItems)
+    }
+
+    override fun onStart() {
+        super.onStart()
         lifecycleScope.launch {
             val user = LanguageApplication.supabaseClient.auth.currentUserOrNull()
             val id = user?.id ?: ""
@@ -54,23 +63,19 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 transformations(CircleCropTransformation())
             }
 
+
             val topUsers = LanguageApplication.supabaseClient.postgrest.from("user_info").select {
                 order("points", Order.DESCENDING)
-                range(0, 3)
+                range(0, 2)
             }.decodeList<UserInfo>()
+
+            userItems.clear()
 
             topUsers.forEach { it ->
                 userItems.add(UserItem(it.userPhotoUrl, it.firstName, it.secondName, it.points))
             }
 
-            screenBinding.rvLeaderBoard.layoutManager = LinearLayoutManager(this@MainActivity)
-            screenBinding.rvLeaderBoard.adapter = LeaderBoardRvAdapter(userItems)
-
-            screenBinding.ivUserPhoto.setOnClickListener {
-                val intent = Intent(this@MainActivity, UserProfileActivity::class.java)
-                intent.putExtra("UserInfo", Json.encodeToString(userInfo))
-                startActivity(intent)
-            }
+            screenBinding.rvLeaderBoard.adapter?.notifyDataSetChanged()
         }
     }
 

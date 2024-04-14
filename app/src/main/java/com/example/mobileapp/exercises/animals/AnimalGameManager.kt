@@ -9,16 +9,10 @@ class AnimalGameManager : GameManager() {
         streak = 0
     }
 
-    override fun getPoints(correct: Boolean): Double {
-        return if (correct) {
-            streak++
-            if (streak > 1) {
-                1.0 + 0.2 * coef
-            } else 1.0
-        } else {
-            streak = 0
-            0.0
-        }
+    override fun getPoints(): Double {
+        streak++
+        return if (streak > 1) {
+            1.0 + coef * streak
+        } else 1.0
     }
-
 }

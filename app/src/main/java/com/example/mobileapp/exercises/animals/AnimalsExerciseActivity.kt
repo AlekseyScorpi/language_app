@@ -3,19 +3,22 @@ package com.example.mobileapp.exercises.animals
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
+import coil.load
+import coil.transform.RoundedCornersTransformation
 import com.example.mobileapp.BaseActivity
 import com.example.mobileapp.LanguageApplication
 import com.example.mobileapp.R
 import com.example.mobileapp.database.Animal
+import com.example.mobileapp.database.UserInfo
 import com.example.mobileapp.databinding.ActivityAnimalsExerciseBinding
+import io.github.jan.supabase.gotrue.auth
+import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.postgrest
 import kotlinx.coroutines.launch
 
 class AnimalsExerciseActivity : BaseActivity<ActivityAnimalsExerciseBinding>() {
 
     private val gameManager = AnimalGameManager()
-
-    private var correctAnswer: String = "\n\n\n"
 
     private lateinit var currentAnimal: Animal
 
@@ -26,7 +29,11 @@ class AnimalsExerciseActivity : BaseActivity<ActivityAnimalsExerciseBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind()
-        setContentView(screenBinding.root)
+        lifecycleScope.launch {
+            currentAnimal = getNewAnimal()
+            setDefaultUI()
+            setContentView(screenBinding.root)
+        }
     }
 
     private fun bind() {
@@ -37,9 +44,10 @@ class AnimalsExerciseActivity : BaseActivity<ActivityAnimalsExerciseBinding>() {
             if (correctAnswer) {
                 lifecycleScope.launch {
                     updatePoints()
+                    setSuccessUI()
                 }
-                setSuccessUI()
             } else {
+                gameManager.resetStreak()
                 setWrongUI()
             }
         }
@@ -49,7 +57,10 @@ class AnimalsExerciseActivity : BaseActivity<ActivityAnimalsExerciseBinding>() {
         }
 
         screenBinding.btnAnimalNext.setOnClickListener {
-            setDefaultUI()
+            lifecycleScope.launch {
+                currentAnimal = getNewAnimal()
+                setDefaultUI()
+            }
         }
 
         screenBinding.btnAnimalAgain.setOnClickListener {
@@ -76,7 +87,7 @@ class AnimalsExerciseActivity : BaseActivity<ActivityAnimalsExerciseBinding>() {
         screenBinding.btnCheckAnimal.visibility = View.GONE
         screenBinding.animalTextInputLayout.visibility = View.GONE
         screenBinding.tvResultIcon.text = getString(R.string.animal_bad_answer_icon)
-        screenBinding.tvAnimalMessage.text = getString(R.string.animal_exercise_bad)
+        screenBinding.tvAnimalMessage.text = getString(R.string.animal_exercise_bad, currentAnimal.correctAnswer)
         screenBinding.btnAnimalNext.visibility = View.VISIBLE
         screenBinding.tvResultIcon.visibility = View.VISIBLE
         screenBinding.tvAnimalMessage.visibility = View.VISIBLE
@@ -95,20 +106,47 @@ class AnimalsExerciseActivity : BaseActivity<ActivityAnimalsExerciseBinding>() {
         screenBinding.btnCheckAnimal.visibility = View.VISIBLE
         screenBinding.inputAnimalEditText.setText("")
         screenBinding.animalTextInputLayout.visibility = View.VISIBLE
+        screenBinding.ivAnimalPhoto.load(currentAnimal.imageUrl) {
+            fallback(R.drawable.default_user_photo)
+            transformations(RoundedCornersTransformation(20f))
+        }
     }
 
     private fun isCorrectAnswer(): Boolean {
         val userAnswer = screenBinding.inputAnimalEditText.text.toString()
-        return userAnswer == correctAnswer
+        return userAnswer == currentAnimal.correctAnswer
     }
 
     private suspend fun updatePoints() {
+        val user = LanguageApplication.supabaseClient.auth.currentUserOrNull()
+        val userInfo = LanguageApplication.supabaseClient.postgrest.from("user_info").select {
+            filter { eq("id", user?.id ?: "") }
+        }.decodeSingle<UserInfo>()
+
+        val newPoints: Double = userInfo.points + gameManager.getPoints()
+
+        LanguageApplication.supabaseClient.from("user_info").update(
+            {
+                set("points", newPoints)
+            }
+        ) {
+            filter {
+                eq("id", userInfo.id)
+            }
+        }
+
 
     }
 
-    private suspend fun getNewAnimal() {
-        currentAnimal = LanguageApplication.supabaseClient.postgrest.from("random_guess_animal").select {
-            limit(1)
-        }.decodeSingle<Animal>()
+    private suspend fun getNewAnimal(): Animal {
+        val animal: Animal = try {
+            LanguageApplication.supabaseClient.postgrest.from("random_guess_animal").select {
+                limit(1)
+            }.decodeSingle<Animal>()
+        } catch (e: Exception) {
+            println(e)
+            Animal(0, "", "")
+        }
+        return animal
     }
 }

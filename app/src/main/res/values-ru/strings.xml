@@ -65,4 +65,7 @@
     <string name="word_exercise_button_text">Практика слов</string>
     <string name="audition_exercise_button_text">Аудирование</string>
     <string name="multiplayer_exercise_button_text">Игра</string>
+    <string name="resize_photo_title">Ваше фото великолепно!</string>
+    <string name="resize_photo_message">Измените размер фото,\nчтобы оно поместилось\nв область</string>
+    <string name="resize_photo_button">Использовать это изображение</string>
 </resources>

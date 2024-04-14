@@ -78,4 +78,7 @@
     <string name="multiplayer_exercise_button_text">Game</string>
     <string name="animal_good_answer_icon" translatable="false">🎉</string>
     <string name="animal_bad_answer_icon" translatable="false">😿</string>
+    <string name="resize_photo_title">Your photo is gorgeous!</string>
+    <string name="resize_photo_message">"Just resize that photo \nfor fit in square"</string>
+    <string name="resize_photo_button">Use that image</string>
 </resources>

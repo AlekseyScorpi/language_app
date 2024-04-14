@@ -24,4 +24,5 @@
     <color name="audition_background">#F76400</color>
     <color name="green">#5BA890</color>
     <color name="red">#D6185D</color>
+    <color name="resize_background">#1B1815</color>
 </resources>
