@@ -2,7 +2,7 @@ package com.example.mobileapp.exercises.words
 
 data class WordItem (
     val word: String,
-    val isSelected: Boolean,
-    val isWrong: Boolean,
-    val isCorrect: Boolean
+    var isSelected: Boolean = false,
+    var isWrong: Boolean = false,
+    var isCorrect: Boolean = false,
 )

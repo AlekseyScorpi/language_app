@@ -8,14 +8,16 @@
     <Button
         android:id="@+id/btnWord"
         style="@style/h6Medium"
-        android:textColor="@color/dark_text"
         android:layout_width="327dp"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
+        android:layout_marginBottom="11dp"
         android:background="@drawable/rounded_word_background"
+        android:textColor="@color/dark_text"
         app:backgroundTint="@null"
-        tools:text="Гладиолус"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Гладиолус" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

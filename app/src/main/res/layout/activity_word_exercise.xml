@@ -75,7 +75,7 @@
         android:id="@+id/btnAction"
         style="@style/selectBlueButton"
         android:layout_marginBottom="27dp"
-        tools:text = "Check"
+        android:text="@string/word_exercise_check"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

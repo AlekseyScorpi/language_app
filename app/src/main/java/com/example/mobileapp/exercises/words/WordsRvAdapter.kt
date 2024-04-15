@@ -27,6 +27,19 @@ class WordsRvAdapter(private val itemList: List<WordItem>, private val itemClick
         val currentItem = itemList[position]
         holder.button.text = currentItem.word
         holder.button.isSelected = currentItem.isSelected
+        val context = holder.button.context
+        holder.button.setTextColor(
+            if (currentItem.isSelected) context.getColor(R.color.white)
+            else context.getColor(R.color.dark_text)
+        )
+        if (currentItem.isWrong) {
+            holder.button.background = context.getDrawable(R.drawable.rounded_word_wrong_background)
+        }
+        else if (currentItem.isCorrect) {
+            holder.button.background = context.getDrawable(R.drawable.rounded_word_correct_background)
+        } else {
+            holder.button.background = context.getDrawable(R.drawable.rounded_word_background)
+        }
     }
 
     override fun getItemCount(): Int {

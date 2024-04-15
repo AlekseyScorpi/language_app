@@ -32,8 +32,8 @@ class AnimalsExerciseActivity : BaseActivity<ActivityAnimalsExerciseBinding>() {
         lifecycleScope.launch {
             currentAnimal = getNewAnimal()
             setDefaultUI()
-            setContentView(screenBinding.root)
         }
+        setContentView(screenBinding.root)
     }
 
     private fun bind() {
@@ -134,8 +134,6 @@ class AnimalsExerciseActivity : BaseActivity<ActivityAnimalsExerciseBinding>() {
                 eq("id", userInfo.id)
             }
         }
-
-
     }
 
     private suspend fun getNewAnimal(): Animal {
