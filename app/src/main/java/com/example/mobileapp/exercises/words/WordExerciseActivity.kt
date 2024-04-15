@@ -10,6 +10,8 @@ class WordExerciseActivity : BaseActivity<ActivityWordExerciseBinding>() {
         ActivityWordExerciseBinding.inflate(layoutInflater)
     }
 
+    private val isNext = false
+
     private val wordList: MutableList<WordItem> = mutableListOf()
 
     private val gameManager = WordGameManager()
@@ -19,6 +21,12 @@ class WordExerciseActivity : BaseActivity<ActivityWordExerciseBinding>() {
     }
 
     private fun bind() {
+        screenBinding.btnAction.setOnClickListener {
+            updateUI()
+        }
+    }
+
+    private fun updateUI() {
 
     }
 

@@ -9,6 +9,7 @@ import io.github.jan.supabase.gotrue.Auth
 import io.github.jan.supabase.gotrue.auth
 import io.github.jan.supabase.postgrest.Postgrest
 import io.github.jan.supabase.serializer.KotlinXSerializer
+import io.github.jan.supabase.storage.Storage
 import kotlinx.serialization.json.Json
 
 class   LanguageApplication : Application() {
@@ -29,6 +30,7 @@ class   LanguageApplication : Application() {
 
             install(Auth)
             install(Postgrest)
+            install(Storage)
         }
     }
     suspend fun hasSavedSession(): Boolean {

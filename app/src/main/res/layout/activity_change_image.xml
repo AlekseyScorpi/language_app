@@ -59,4 +59,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clBottomSheet"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/tvBottomSheetMessage"
+            style="@style/h5Medium"
+            android:layout_width="327dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center_horizontal"
+            android:text="@string/bottom_sheet_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnMemoryChoose"
+            style="@style/selectBlueButton"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/sheet_choose_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBottomSheetMessage" />
+
+        <Button
+            android:id="@+id/btnCameraChoose"
+            style="@style/selectBlueButton"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/sheet_choose_photo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnMemoryChoose" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
