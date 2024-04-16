@@ -10,20 +10,20 @@ import com.example.mobileapp.LanguageApplication
 import com.example.mobileapp.R
 import com.example.mobileapp.database.Animal
 import com.example.mobileapp.database.UserInfo
-import com.example.mobileapp.databinding.ActivityAnimalsExerciseBinding
+import com.example.mobileapp.databinding.ActivityAnimalExerciseBinding
 import io.github.jan.supabase.gotrue.auth
 import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.postgrest
 import kotlinx.coroutines.launch
 
-class AnimalsExerciseActivity : BaseActivity<ActivityAnimalsExerciseBinding>() {
+class AnimalExerciseActivity : BaseActivity<ActivityAnimalExerciseBinding>() {
 
     private val gameManager = AnimalGameManager()
 
     private lateinit var currentAnimal: Animal
 
-    override val screenBinding: ActivityAnimalsExerciseBinding by lazy {
-        ActivityAnimalsExerciseBinding.inflate(layoutInflater)
+    override val screenBinding: ActivityAnimalExerciseBinding by lazy {
+        ActivityAnimalExerciseBinding.inflate(layoutInflater)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -11,7 +11,8 @@ import com.example.mobileapp.LanguageApplication
 import com.example.mobileapp.R
 import com.example.mobileapp.database.UserInfo
 import com.example.mobileapp.databinding.ActivityMainBinding
-import com.example.mobileapp.exercises.animals.AnimalsExerciseActivity
+import com.example.mobileapp.exercises.animals.AnimalExerciseActivity
+import com.example.mobileapp.exercises.multiplayer.MultiplayerActivity
 import com.example.mobileapp.exercises.words.WordExerciseActivity
 import com.example.mobileapp.user_profile.UserProfileActivity
 import io.github.jan.supabase.gotrue.auth
@@ -35,12 +36,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         setContentView(screenBinding.root)
 
         screenBinding.clAnimal.setOnClickListener {
-            val intent = Intent(this@MainActivity, AnimalsExerciseActivity::class.java)
+            val intent = Intent(this@MainActivity, AnimalExerciseActivity::class.java)
             startActivity(intent)
         }
 
         screenBinding.clWord.setOnClickListener {
             val intent = Intent(this@MainActivity, WordExerciseActivity::class.java)
+            startActivity(intent)
+        }
+
+        screenBinding.clMultiplayer.setOnClickListener {
+            val intent = Intent(this@MainActivity, MultiplayerActivity::class.java)
             startActivity(intent)
         }
 

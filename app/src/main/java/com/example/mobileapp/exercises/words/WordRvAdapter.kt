@@ -7,7 +7,7 @@ import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileapp.R
 
-class WordsRvAdapter(private val itemList: List<WordItem>, private val itemClickListener: (Int) -> Unit) : RecyclerView.Adapter<WordsRvAdapter.ViewHolder>() {
+class WordRvAdapter(private val itemList: List<WordItem>, private val itemClickListener: (Int) -> Unit) : RecyclerView.Adapter<WordRvAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View, clickListener: (Int) -> Unit) : RecyclerView.ViewHolder(itemView) {
         val button: Button = itemView.findViewById(R.id.btnWord)

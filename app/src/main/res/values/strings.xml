@@ -87,4 +87,7 @@
     <string name="bottom_sheet_message">Where do you want to select the photo from?</string>
     <string name="sheet_choose_image">Choose image</string>
     <string name="sheet_choose_photo">Take photo</string>
+    <string name="multiplayer_player_label">You</string>
+    <string name="multiplayer_opponent_label" translatable="false">P2</string>
+    <string name="multiplayer_both_label" translatable="false">%s/%s</string>
 </resources>
