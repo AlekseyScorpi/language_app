@@ -75,4 +75,12 @@
     <string name="sheet_choose_image">Выбрать изображение</string>
     <string name="sheet_choose_photo">Сделать фото</string>
     <string name="multiplayer_player_label">Вы</string>
+    <string name="audition_exercise_title">Прослушивание</string>
+    <string name="audition_exercise_welcome">Пожалуйста, нажмите на кнопку и произнесите это слово. Наш сервис проверит ваше произношение</string>
+    <string name="audition_exercise_button_check">Проверить произношение</string>
+    <string name="audition_exercise_result_title">Ваш результат: %s</string>
+    <string name="audition_exercise_button_correct">Ура! Идем дальше</string>
+    <string name="audition_exercise_button_wrong">Упс! Идем дальше</string>
+    <string name="audition_exercise_start_listening">Слушаем…</string>
+    <string name="audition_exercise_start_recognition">Распознаем…</string>
 </resources>

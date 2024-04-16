@@ -90,4 +90,12 @@
     <string name="multiplayer_player_label">You</string>
     <string name="multiplayer_opponent_label" translatable="false">P2</string>
     <string name="multiplayer_both_label" translatable="false">%s/%s</string>
+    <string name="audition_exercise_title">Listening</string>
+    <string name="audition_exercise_welcome">Please press button and say this word. Our service will check your pronunciation</string>
+    <string name="audition_exercise_button_check">Check my speech</string>
+    <string name="audition_exercise_result_title">Your result: %s</string>
+    <string name="audition_exercise_button_correct">Yay! Go next</string>
+    <string name="audition_exercise_button_wrong">Oops! Go next</string>
+    <string name="audition_exercise_start_listening">Listening…</string>
+    <string name="audition_exercise_start_recognition">Recognize…</string>
 </resources>

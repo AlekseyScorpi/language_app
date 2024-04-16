@@ -23,8 +23,11 @@ class UserProfileActivity : BaseActivity<ActivityUserProfileBinding>() {
     override val screenBinding: ActivityUserProfileBinding by lazy {
         ActivityUserProfileBinding.inflate(layoutInflater)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setContentView(screenBinding.root)
 
         val isDarkTheme = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
 
@@ -59,9 +62,6 @@ class UserProfileActivity : BaseActivity<ActivityUserProfileBinding>() {
         screenBinding.btnChangeImage.setOnClickListener {
             startActivity(Intent(this, ChangeImageActivity::class.java))
         }
-
-
-        setContentView(screenBinding.root)
     }
 
     override fun onStart() {
