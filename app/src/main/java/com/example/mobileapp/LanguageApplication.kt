@@ -4,7 +4,6 @@ import android.app.Application
 import com.example.mobileapp.database.LocalStorage
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.createSupabaseClient
-import io.github.jan.supabase.exceptions.RestException
 import io.github.jan.supabase.gotrue.Auth
 import io.github.jan.supabase.gotrue.auth
 import io.github.jan.supabase.postgrest.Postgrest
@@ -41,7 +40,7 @@ class   LanguageApplication : Application() {
                 try {
                     savedSession =
                         supabaseClient.auth.refreshSession(refreshToken)
-                } catch (ignored: RestException) {}
+                } catch (e: Exception) { }
             }
         }
         if (savedSession != null) {

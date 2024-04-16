@@ -64,8 +64,9 @@ class UserProfileActivity : BaseActivity<ActivityUserProfileBinding>() {
         setContentView(screenBinding.root)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onStart() {
+        super.onStart()
+        if (!isShouldStart) return
         lifecycleScope.launch {
             val user = LanguageApplication.supabaseClient.auth.currentUserOrNull()
             val id = user?.id ?: ""

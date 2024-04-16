@@ -21,6 +21,12 @@ class SplashScreenActivity : BaseActivity<ActivitySplashScreenBinding>() {
 
     private var currentFragment: Int = 0
 
+    override fun onNetworkConnected() {
+    }
+
+    override fun onNetworkDisconnected() {
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)

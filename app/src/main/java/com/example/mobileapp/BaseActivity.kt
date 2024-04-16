@@ -18,11 +18,13 @@ abstract class BaseActivity<T: ViewBinding> : AppCompatActivity(), NetworkStateL
 
     private val networkChangeReceiver = NetworkChangeReceiver()
 
-    private var isInternetAvailable = true
+    private var isInternetAvailable = false
 
     private val noConnectionBinding: ActivityNoConnectionBinding by lazy {
         ActivityNoConnectionBinding.inflate(layoutInflater)
     }
+
+    protected var isShouldStart = true
 
 
     protected abstract val screenBinding:T
@@ -54,11 +56,21 @@ abstract class BaseActivity<T: ViewBinding> : AppCompatActivity(), NetworkStateL
                 rightMargin = insets.right
             }
 
+            noConnectionBinding.root.layoutParams = ViewGroup.MarginLayoutParams(
+                ViewGroup.MarginLayoutParams.MATCH_PARENT,
+                ViewGroup.MarginLayoutParams.MATCH_PARENT
+            ).apply {
+                leftMargin = insets.left
+                bottomMargin = insets.bottom
+                rightMargin = insets.right
+            }
+
             // Return CONSUMED if you don't want want the window insets to keep passing
             // down to descendant views.
             WindowInsetsCompat.CONSUMED
         }
 
+        isShouldStart = isInternetAvailable
     }
 
     override fun onDestroy() {
@@ -68,10 +80,13 @@ abstract class BaseActivity<T: ViewBinding> : AppCompatActivity(), NetworkStateL
 
     override fun onNetworkConnected() {
         isInternetAvailable = true
+        isShouldStart = true
+        onStart()
     }
 
     override fun onNetworkDisconnected() {
         isInternetAvailable = false
+        isShouldStart = false
         setContentView(noConnectionBinding.root)
     }
 }
