@@ -114,7 +114,7 @@ class AnimalExerciseActivity : BaseActivity<ActivityAnimalExerciseBinding>() {
 
     private fun isCorrectAnswer(): Boolean {
         val userAnswer = screenBinding.inputAnimalEditText.text.toString()
-        return userAnswer == currentAnimal.correctAnswer
+        return userAnswer.equals(currentAnimal.correctAnswer, ignoreCase = true)
     }
 
     private suspend fun updatePoints() {

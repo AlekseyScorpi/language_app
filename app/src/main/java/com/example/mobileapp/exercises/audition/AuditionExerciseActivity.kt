@@ -74,10 +74,14 @@ class AuditionExerciseActivity : BaseActivity<ActivityAuditionExerciseBinding>()
             }
 
             override fun onEndOfSpeech() {
-
+                screenBinding.btnAction.clearAnimation()
+                screenBinding.btnAction.setText(R.string.audition_exercise_start_recognition)
             }
 
             override fun onError(error: Int) {
+                screenBinding.btnAction.clearAnimation()
+                screenBinding.btnAction.setText(R.string.audition_exercise_start_recognition)
+                onResults(results = null)
             }
 
             override fun onResults(results: Bundle?) {
@@ -86,6 +90,20 @@ class AuditionExerciseActivity : BaseActivity<ActivityAuditionExerciseBinding>()
                     userResult = matches[0]
                 } else {
                     userResult = ""
+                }
+                screenBinding.btnAction.clearAnimation()
+                isSpeaking = false
+                isNext = true
+                screenBinding.tvResultMessage.text =
+                    getString(R.string.audition_exercise_result_title, userResult)
+                lifecycleScope.launch {
+                    if (userResult == word) {
+                        updatePoints()
+                        screenBinding.btnAction.setText(R.string.audition_exercise_button_correct)
+                    } else {
+                        gameManager.resetStreak()
+                        screenBinding.btnAction.setText(R.string.audition_exercise_button_wrong)
+                    }
                 }
             }
 
@@ -108,24 +126,11 @@ class AuditionExerciseActivity : BaseActivity<ActivityAuditionExerciseBinding>()
                     screenBinding.tvTranscription.text = exercise.transcription
                     screenBinding.tvResultMessage.text = ""
                     word = exercise.word
+                    userResult = ""
                     screenBinding.btnAction.setText(R.string.audition_exercise_button_check)
                     isNext = false
                 } else {
-                    if (isSpeaking) {
-                        speechRecognizer.stopListening()
-                        screenBinding.btnAction.clearAnimation()
-                        screenBinding.btnAction.setText(R.string.audition_exercise_start_recognition)
-                        isSpeaking = false
-                        isNext = true
-                        screenBinding.tvResultMessage.text = getString(R.string.audition_exercise_result_title, userResult)
-                        if (userResult == word) {
-                            updatePoints()
-                            screenBinding.btnAction.setText(R.string.audition_exercise_button_correct)
-                        } else {
-                            gameManager.resetStreak()
-                            screenBinding.btnAction.setText(R.string.audition_exercise_button_wrong)
-                        }
-                    } else {
+                    if (!isSpeaking) {
                         screenBinding.btnAction.startAnimation(pulseAnimation)
                         screenBinding.btnAction.setText(R.string.audition_exercise_start_listening)
                         speechRecognizer.startListening(speechIntent)
