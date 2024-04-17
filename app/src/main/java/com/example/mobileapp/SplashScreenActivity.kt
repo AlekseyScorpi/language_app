@@ -9,6 +9,7 @@ import com.example.mobileapp.databinding.ActivitySplashScreenBinding
 import com.example.mobileapp.login.LoginActivity
 import com.example.mobileapp.main.MainActivity
 import com.example.mobileapp.onboarding.OnboardingActivity
+import io.github.jan.supabase.gotrue.auth
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -40,6 +41,7 @@ class SplashScreenActivity : BaseActivity<ActivitySplashScreenBinding>() {
         } else {
             lifecycleScope.launch {
                 delay(1000)
+                LanguageApplication.supabaseClient.auth.awaitInitialization()
                 val hasSession = (application as LanguageApplication).hasSavedSession()
                 if (hasSession) {
                     startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))

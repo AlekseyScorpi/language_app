@@ -69,17 +69,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         super.onStart()
         if (!isShouldStart) return
         lifecycleScope.launch {
-            val user = LanguageApplication.supabaseClient.auth.currentUserOrNull()
-            val id = user?.id ?: ""
-            userInfo = LanguageApplication.supabaseClient.postgrest.from("user_info").select {
-                filter { eq("id", id) }
-            }.decodeSingle<UserInfo>()
+            try {
+                LanguageApplication.supabaseClient.auth.awaitInitialization()
+                val user = LanguageApplication.supabaseClient.auth.currentUserOrNull()
+                val id = user?.id ?: ""
+                userInfo = LanguageApplication.supabaseClient.postgrest.from("user_info").select {
+                    filter { eq("id", id) }
+                }.decodeSingle<UserInfo>()
 
-            screenBinding.tvUserWelcome.text = getString(R.string.main_activity_welcome, userInfo.firstName)
+                screenBinding.tvUserWelcome.text = getString(R.string.main_activity_welcome, userInfo.firstName)
 
-            screenBinding.ivUserPhoto.load(userInfo.userPhotoUrl) {
-                fallback(R.drawable.default_user_photo)
-                transformations(CircleCropTransformation())
+                screenBinding.ivUserPhoto.load(userInfo.userPhotoUrl) {
+                    fallback(R.drawable.default_user_photo)
+                    transformations(CircleCropTransformation())
+                }
+            } catch (e: Exception) {
+                print(e.message)
             }
 
 

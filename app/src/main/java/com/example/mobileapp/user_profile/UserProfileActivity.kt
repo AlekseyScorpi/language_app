@@ -68,6 +68,7 @@ class UserProfileActivity : BaseActivity<ActivityUserProfileBinding>() {
         super.onStart()
         if (!isShouldStart) return
         lifecycleScope.launch {
+            LanguageApplication.supabaseClient.auth.awaitInitialization()
             val user = LanguageApplication.supabaseClient.auth.currentUserOrNull()
             val id = user?.id ?: ""
             val userInfo = LanguageApplication.supabaseClient.postgrest.from("user_info").select {
